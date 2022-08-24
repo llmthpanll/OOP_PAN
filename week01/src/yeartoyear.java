@@ -1,4 +1,4 @@
-package week01;
+
 import java.util.*;
 public class yeartoyear {
     public static void main(String[] args) {

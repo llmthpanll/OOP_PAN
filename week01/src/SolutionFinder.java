@@ -1,4 +1,4 @@
-package week01;
+
 
 public class SolutionFinder {
     public static void main(String[] args) {

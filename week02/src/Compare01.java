@@ -1,4 +1,4 @@
-package week02;
+
 import java.util.*;
 public class Compare01 {
     public static void main(String[] args) {

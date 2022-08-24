@@ -1,4 +1,4 @@
-package week02;
+
 import java.util.*;
 public class MyCal1 {
     public static void main(String[] args) {

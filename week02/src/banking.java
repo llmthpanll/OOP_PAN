@@ -1,4 +1,4 @@
-package week02;
+
 import java.util.*;
 public class banking {
     public static void main(String[] args) {

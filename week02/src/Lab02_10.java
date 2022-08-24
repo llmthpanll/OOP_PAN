@@ -1,4 +1,4 @@
-package week02;
+
 import java.util.*;
 public class Lab02_10 {
     public static void main(String[] args) {
