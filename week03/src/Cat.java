@@ -20,7 +20,6 @@ public class Cat {
     }
     private void setName(String n) {
         name = n;
-        
     }
     private void setColor(String c) {
         color = c;

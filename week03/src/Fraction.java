@@ -6,10 +6,8 @@ public class Fraction {
         return topN + "/" + btmN;
     }
     public String toFloat(){
-        double topN2 = topN, btmN2 = btmN;
-        double ans = topN2/btmN2;
-        String text = String.valueOf(ans);
-        return text;
+        double ans = 1.0*topN/btmN;
+        return ans + "";
     }
     public void addFraction(Fraction f){
         if (btmN == f.btmN){
