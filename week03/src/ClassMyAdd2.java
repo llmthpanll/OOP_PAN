@@ -10,7 +10,7 @@ public class ClassMyAdd2 {
         int num = sc.nextInt();
         int result = obj.AddTwo(x);
         System.out.println("The result#1 is "+ result);
-        result = AddNum (x+5, num);
+        //result = AddNum(x+5, num);
         result = obj.AddNum (x+5, num);
         System.out.println("The result#2 is "+ result);
         result = obj.AddTwo(x*3+2);
