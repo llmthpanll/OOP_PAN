@@ -2,7 +2,11 @@ public class Vehicle {
     private int fuel;
     private String topSpeed;
     protected void setFeul(int i) {
-        fuel = i;
+        if(i >= 0 ){
+            fuel = i;
+        } else {
+            fuel += i;
+        }
     }
     protected void setTopSpeed(String n) {
         topSpeed = n;
