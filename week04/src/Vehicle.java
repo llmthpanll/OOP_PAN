@@ -1,7 +1,7 @@
 public class Vehicle {
     private int fuel;
     private String topSpeed;
-    protected void setFeul(int i) {
+    protected void setFuel(int i) {
         if(i >= 0 ){
             fuel = i;
         } else {
@@ -14,7 +14,7 @@ public class Vehicle {
     protected int getFuel() {
         return fuel;
     }
-    protected String gotTopSpeed() {
+    protected String getTopSpeed() {
         return topSpeed;
     }
     public void showInfo(){

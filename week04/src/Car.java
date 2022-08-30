@@ -8,10 +8,10 @@ public class Car extends Vehicle{
     }
     public void showCarInfo(){
        System.out.println("Car engine is "+typeEngine+".");
-       System.out.println("Fuel is "+this.getFuel()+" litre and Top Speed is "+ this.gotTopSpeed()+" m/s.");
+       System.out.println("Fuel is "+this.getFuel()+" litre and Top Speed is "+ this.getTopSpeed()+" m/s.");
     }
     public void setCarInfo(int s, String t, String y){
-        super.setFeul(s);
+        super.setFuel(s);
         super.setTopSpeed(t);
         this.typeEngine = y;
     }
@@ -19,7 +19,7 @@ public class Car extends Vehicle{
         if (this.getFuel() < 50){
             System.out.println("Please add fuel.");
         } else{
-            this.setFeul(-50);
+            this.setFuel(-50);
             System.out.println("Move.");
         }
     }
