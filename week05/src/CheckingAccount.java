@@ -29,8 +29,8 @@ public class CheckingAccount extends Account {
                 this.balance = this.balance - a;
                 System.out.println(a + " baht is withdrawn from " + this.name + " and your credit balance is " + this.credit + ".");
             } else if (this.balance - a < 0 && this.balance - a + this.credit >= 0) {
-                this.balance = 0;
                 this.credit = this.balance - a + this.credit;
+                this.balance = 0;
                 System.out.println(a + " baht is withdrawn from " + this.name + " and your credit balance is " + this.credit + ".");
             } else if (this.balance - a < 0 && this.balance - a + this.credit < 0) {
                 System.out.println("Not enough money!");
