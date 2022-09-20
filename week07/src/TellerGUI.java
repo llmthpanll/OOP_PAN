@@ -45,9 +45,5 @@ public class TellerGUI {
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fr.pack();
         fr.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        new TellerGUI();
-    }
+    }    
 }
