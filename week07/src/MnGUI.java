@@ -33,6 +33,7 @@ public class MnGUI extends JFrame {
 //        frame3.pack();
         frame3.setSize(200, 200);
         frame3.setVisible(true);
+        
         frame1.setLocation(250, 100);
         frame2.setLocation(500, 320);
         frame3.setLocation(1002, 100);
