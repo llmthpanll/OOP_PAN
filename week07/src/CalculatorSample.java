@@ -71,6 +71,10 @@ public class CalculatorSample extends JFrame {
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
         int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+//        System.out.println(dimension.getWidth());
+//        System.out.println(dimension.getHeight());
+//        System.out.println(x);
+//        System.out.println(y);
         this.setLocation(x, y);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //        this.pack();
