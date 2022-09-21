@@ -38,9 +38,9 @@ public class MnGUI extends JFrame {
         
         
         
-        frame1.setLocation(250, 100);
+        frame1.setLocation(300, 100);
         frame2.setLocation(500, 320);
-        frame3.setLocation(1002, 100);
+        frame3.setLocation(1002, 200);
         desktopPane.add(frame1);
         desktopPane.add(frame2);
         desktopPane.add(frame3);

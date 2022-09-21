@@ -23,7 +23,6 @@ public class CalculatorSample extends JFrame {
     private JButton btn14;
     private JButton btn15;
     private JButton btn16;
-    
 
     public CalculatorSample() {
         p = new JPanel();
@@ -44,7 +43,7 @@ public class CalculatorSample extends JFrame {
         btn14 = new JButton("c");
         btn15 = new JButton("=");
         btn16 = new JButton("/");
-        
+
         p.setLayout(new GridLayout(4, 4));
         p.add(btn1);
         p.add(btn2);
@@ -62,17 +61,23 @@ public class CalculatorSample extends JFrame {
         p.add(btn14);
         p.add(btn15);
         p.add(btn16);
-        
+
         this.setTitle("calculator");
         this.setLayout(new BorderLayout());
         this.add(txt, BorderLayout.NORTH);
         this.add(p);
-        
-//        this.setSize(500, 500);
-        
+
+        this.setSize(250, 250);
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - this.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - this.getHeight()) / 2);
+        this.setLocation(x, y);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
+//        this.pack();
         this.setVisible(true);
     }
 
+    public static void main(String[] args) {
+        new CalculatorSample();
+    }
 }

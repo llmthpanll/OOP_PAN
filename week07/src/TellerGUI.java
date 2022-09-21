@@ -41,9 +41,18 @@ public class TellerGUI {
 
         fr.add(pn1);
         fr.add(pn2);
+
         
         fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fr.pack();
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - fr.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - fr.getHeight()) / 2);
+        fr.setLocation(x, y);
         fr.setVisible(true);
-    }    
+    }
+
+    public static void main(String[] args) {
+        new TellerGUI();
+    }
 }
