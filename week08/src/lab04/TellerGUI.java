@@ -16,9 +16,9 @@ public class TellerGUI implements ActionListener {
     private JButton btn1;
     private JButton btn2;
     private JButton btn3;
-    private Account ac = new Account(6000, "Pan");
+    private Account ac;
 
-    ;
+    
 
     public TellerGUI() {
         fr = new JFrame();
@@ -26,6 +26,7 @@ public class TellerGUI implements ActionListener {
         pn2 = new JPanel();
         lb1 = new JLabel("Balance");
         lb2 = new JLabel("Amount");
+        ac = new Account(6000, "Pan");
 
         String txt = ac.getBalance() + "";
         txt1 = new JTextField(txt);
