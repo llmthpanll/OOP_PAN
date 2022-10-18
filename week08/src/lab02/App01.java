@@ -44,7 +44,7 @@ public class App01 implements ActionListener {
         // Set JFrame Property
         txt3.setEditable(false);
         fr.setFont(new Font("TimesRoman", Font.BOLD, 60));
-        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        fr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
         fr.pack();
         fr.setVisible(true);
     }
