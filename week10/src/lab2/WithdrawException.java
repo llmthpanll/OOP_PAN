@@ -1,3 +1,5 @@
+package lab2;
+
 
 public class WithdrawException extends Exception {
     public WithdrawException(){

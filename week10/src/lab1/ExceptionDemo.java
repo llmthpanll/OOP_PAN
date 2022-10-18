@@ -12,8 +12,10 @@ public class ExceptionDemo {
             System.out.println("x1 : " + x1);
             System.out.println("x2 : " + x2);
         } catch (NumberFormatException ex) {
+//            System.out.println(ex);
             System.out.println("Please input data in number format only.");
         } catch (ArrayIndexOutOfBoundsException ex) {
+//            System.out.println(ex);
             System.out.println("Please enter 3 numbers as a, b, and c respectively.");
         }
 
