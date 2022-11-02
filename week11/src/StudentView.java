@@ -4,7 +4,7 @@ import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
-public class StudentView extends WindowAdapter implements ActionListener {
+public class StudentView implements ActionListener, WindowListener {
 
     private JFrame jf;
     private JPanel pn1, pn2, pn3, pn4;
@@ -54,6 +54,10 @@ public class StudentView extends WindowAdapter implements ActionListener {
 
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.pack();
+        Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+        int x = (int) ((dimension.getWidth() - jf.getWidth()) / 2);
+        int y = (int) ((dimension.getHeight() - jf.getHeight()) / 2);
+        jf.setLocation(x, y);
         jf.setVisible(true);
     }
 
@@ -61,42 +65,49 @@ public class StudentView extends WindowAdapter implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         if (ae.getSource().equals(deposit)) {
             String money = tf3.getText();
-            tf3.setText(Integer.parseInt(money) + 100 + "");
+            tf3.setText(Integer.parseInt(tf3.getText()) + 100 + "");
         } else if (ae.getSource().equals(withdraw)) {
             String money = tf3.getText();
-            if ((Integer.parseInt(money) - 100) < 0) {
+            if ((Integer.parseInt(tf3.getText()) - 100) < 0) {
                 tf3.setText("0");
             } else {
-                tf3.setText((Integer.parseInt(money) - 100) + "");
+                tf3.setText((Integer.parseInt(tf3.getText()) - 100) + "");
             }
         }
     }
 
-    public void windowClosing(WindowAdapter ev) {
-        try ( FileOutputStream fout = new FileOutputStream("StudentM.dat");  ObjectOutputStream oout = new ObjectOutputStream(fout);) {
-            oout.writeObject(new Student(tf1.getText(), Integer.parseInt(tf2.getText()), Integer.parseInt(tf3.getText())));
-            System.out.println("Gear");
+    @Override
+    public void windowOpened(WindowEvent ev) {
+    }
+
+    @Override
+    public void windowClosing(WindowEvent ev) {
+        System.out.println("hello");
+        try ( FileOutputStream fileOutput = new FileOutputStream("StudentM.dat");  ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);) {
+            objectOutput.writeObject(new Student(tf2.getText(), Integer.parseInt(tf1.getText()), Integer.parseInt(tf3.getText())));
         } catch (IOException e) {
             System.out.print(e);
         }
     }
 
-    public void windowOpened(WindowAdapter ev) {
-        Student s = null;
-        try ( FileInputStream fin = new FileInputStream("StudentM.dat");  ObjectInputStream oin = new ObjectInputStream(fin);) {
-            s = (Student) oin.readObject();
+    @Override
+    public void windowClosed(WindowEvent ev) {
+    }
 
-            System.out.println(s.getName());
-            System.out.println(s.getID());
-            System.out.println(s.getMoney());
-        } catch (IOException e) {
-            System.out.print(e);
-        } catch (ClassNotFoundException c) {
-            c.printStackTrace();
-        }
-        tf1.setText(s.getName());
-        tf2.setText(s.getID() + "");
-        tf2.setText(s.getMoney() + "");
+    @Override
+    public void windowIconified(WindowEvent ev) {
+    }
+
+    @Override
+    public void windowDeiconified(WindowEvent ev) {
+    }
+
+    @Override
+    public void windowActivated(WindowEvent ev) {
+    }
+
+    @Override
+    public void windowDeactivated(WindowEvent ev) {
     }
 
     public static void main(String[] args) {
