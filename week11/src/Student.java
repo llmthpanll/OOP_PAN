@@ -7,7 +7,11 @@ public class Student implements Serializable{
     private int money;
     
     public Student(){}
-    public Student(String name, int ID, int money){}
+    public Student(String name, int ID, int money){
+        this.name = name;
+        this.ID = ID;
+        this.money = money;
+    }
 
     public String getName() {
         return name;

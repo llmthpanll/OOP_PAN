@@ -22,8 +22,8 @@ public class StudentView implements ActionListener, WindowListener {
         l1 = new JLabel("ID:");
         l2 = new JLabel("Name:");
         l3 = new JLabel("Money:");
-        tf1 = new JTextField();
-        tf2 = new JTextField();
+        tf1 = new JTextField("");
+        tf2 = new JTextField("");
         tf3 = new JTextField("0");
         deposit = new JButton("Deposit");
         withdraw = new JButton("Withdraw");
@@ -78,11 +78,27 @@ public class StudentView implements ActionListener, WindowListener {
 
     @Override
     public void windowOpened(WindowEvent ev) {
+        Student s = null;
+        try {
+            try (FileInputStream fin = new FileInputStream("StudentM.dat"); ObjectInputStream in = new ObjectInputStream(fin)) {
+                s = (Student) in.readObject();
+            }
+        } catch (IOException i) {
+            i.printStackTrace();
+        } catch (ClassNotFoundException c) {
+            c.printStackTrace();
+        }
+//        System.out.println("Deserialized Student.");
+//        System.out.println("Name: " + s.name);
+//        System.out.println("ID: " + s.id);
+        tf1.setText(s.getID()+ "");
+        tf2.setText(s.getName());
+        tf3.setText(s.getMoney()+ "");
     }
 
     @Override
     public void windowClosing(WindowEvent ev) {
-        System.out.println("hello");
+//        System.out.println("hello");
         try ( FileOutputStream fileOutput = new FileOutputStream("StudentM.dat");  ObjectOutputStream objectOutput = new ObjectOutputStream(fileOutput);) {
             objectOutput.writeObject(new Student(tf2.getText(), Integer.parseInt(tf1.getText()), Integer.parseInt(tf3.getText())));
         } catch (IOException e) {
