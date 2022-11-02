@@ -1,4 +1,4 @@
-package lab01;
+ package lab01;
 
 
 import java.awt.*;
