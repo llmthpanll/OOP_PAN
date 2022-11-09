@@ -1,5 +1,4 @@
- package lab01;
-
+package lab01;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -24,7 +23,7 @@ public class ChatDemo extends JFrame implements ActionListener, WindowListener {
         btn1 = new JButton("Submit");
         btn2 = new JButton("Reset");
         ta.setEnabled(false);
-        
+
         btn1.addActionListener(this);
         btn2.addActionListener(this);
         pn1.add(btn1);
