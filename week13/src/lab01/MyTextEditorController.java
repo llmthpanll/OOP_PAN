@@ -25,7 +25,7 @@ public class MyTextEditorController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == view.getMi1()) {
+        if (e.getSource().equals(view.getMi1())) {
             view.getTextarea().setText("");
         } else if (e.getSource() == view.getMi2()) {
 //            view.getFr().dispose();
