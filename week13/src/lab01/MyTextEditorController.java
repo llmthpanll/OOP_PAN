@@ -1,3 +1,5 @@
+package lab01;
+
 
 import java.awt.event.*;
 import java.io.*;

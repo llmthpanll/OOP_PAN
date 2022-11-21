@@ -1,3 +1,5 @@
+package lab01;
+
 
 import javax.swing.*;
 import java.awt.*;
