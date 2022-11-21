@@ -1,18 +1,17 @@
-import lab01.MyTextEditorModel;
-import lab01.MyTextEditorView;
+
 
 import java.awt.event.*;
-import java.awt.event.*;
+import javax.swing.JOptionPane;
 
-public class BookController implements ActionListener, WindowListener {
+public class BookController implements ActionListener {
     private BookView view;
     private BookModel model;
-    private BookAdd displayView;
+    private BookAdd addbook;
 
     public BookController() {
         view = new BookView();
         model = new BookModel();
-        displayView = new BookAdd();
+        addbook = new BookAdd();
 
         init();
     }
@@ -22,60 +21,29 @@ public class BookController implements ActionListener, WindowListener {
         view.getBtnadd().addActionListener(this);
         view.getBtnup().addActionListener(this);
         view.getBtnde().addActionListener(this);
-        displayView.getFrame().addWindowListener(this);
+        addbook.getBtnin().addActionListener(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(view.getBtnless())){
-            System.out.println("Btnless");
+            System.out.println("<<<");
         } else if (e.getSource().equals(view.getBtnmore())) {
-            System.out.println("Btnmore");
+            System.out.println(">>>");
         } else if (e.getSource().equals(view.getBtnadd())) {
-            System.out.println("Btnadd");
-            displayView.getFrame().setVisible(true);
+            System.out.println("add");
+            addbook.getFrame().setVisible(true);
         } else if (e.getSource().equals(view.getBtnup())) {
-            System.out.println("Btnup");
+            System.out.println("update");
+            JOptionPane.showMessageDialog(null, "Done it.","Update Command",JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource().equals(view.getBtnde())) {
-            System.out.println("Btnde");
+            System.out.println("delete");
+            JOptionPane.showMessageDialog(null, "Done it.","Delete Command",JOptionPane.PLAIN_MESSAGE);
+        } else if (e.getSource().equals(addbook.getBtnin())){
+//          System.out.println("asdasd");
+            JOptionPane.showMessageDialog(null, "Done it.","",JOptionPane.PLAIN_MESSAGE);
+            addbook.getFrame().dispose();
         }
-    }
-
-
-
-
-    @Override
-    public void windowOpened(WindowEvent e) {
-    }
-
-    @Override
-    public void windowClosing(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowClosed(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowIconified(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowDeiconified(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowActivated(WindowEvent e) {
-
-    }
-
-    @Override
-    public void windowDeactivated(WindowEvent e) {
-
     }
 
 
