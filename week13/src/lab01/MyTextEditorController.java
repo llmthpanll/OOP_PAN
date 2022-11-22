@@ -32,13 +32,15 @@ public class MyTextEditorController implements ActionListener {
             JFileChooser fc = new JFileChooser();
             fc.showOpenDialog(view.getFr()); // 
             File f = fc.getSelectedFile();
+            model.loadText(f, view);
         } else if (e.getSource() == view.getMi3()) {
 //            view.getFr().dispose();
             JFileChooser fc = new JFileChooser();
             fc.showSaveDialog(view.getFr()); // fr คือ ตัวแปรออปเจ็ค JFrame
             File f = fc.getSelectedFile();
+            model.saveText(f, view);
         } else if (e.getSource() == view.getMi4()) {
-            view.getFr().dispose();
+            System.exit(0);
         }
     }
 

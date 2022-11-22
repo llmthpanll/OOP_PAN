@@ -16,6 +16,9 @@ public class BookController implements ActionListener {
         init();
     }
     public void init(){
+        if(model.loadData()){
+            view.setData(model.getData().getName(),model.getData().getPrice(), model.getData().getType());
+        }
         view.getBtnless().addActionListener(this);
         view.getBtnmore().addActionListener(this);
         view.getBtnadd().addActionListener(this);
@@ -40,7 +43,21 @@ public class BookController implements ActionListener {
             System.out.println("delete");
             JOptionPane.showMessageDialog(null, "Done it.","Delete Command",JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource().equals(addbook.getBtnin())){
-//          System.out.println("asdasd");
+            System.out.println("insert");
+
+            String name = addbook.getTfname().getText();
+            Double price = Double.parseDouble(addbook.getTfprice().getText());
+            String type = (String) addbook.getComboBox().getSelectedItem();
+            model.setData(new Book(name,price,type));
+            if(model.saveData()) {
+                System.out.println(name);
+                System.out.println(price);
+                System.out.println(type);
+                System.out.println("Complete");
+            }
+            else {
+                System.out.println("Fail!");
+            }
             JOptionPane.showMessageDialog(null, "Done it.","",JOptionPane.PLAIN_MESSAGE);
             addbook.getFrame().dispose();
         }

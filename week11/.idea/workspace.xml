@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3da1a46f-f120-490e-b552-fbc38ae17553" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatDemo.dat" beforeDir="false" afterPath="$PROJECT_DIR$/ChatDemo.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/out/production/week13/Book.class" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/out/production/week13/Book.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/out/production/week13/BookController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/out/production/week13/BookController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/out/production/week13/BookDisplayView.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/out/production/week13/BookModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/out/production/week13/BookModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/out/production/week13/BookView.class" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/out/production/week13/BookView.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/src/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/src/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/src/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/src/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/src/BookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/src/BookView.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2HtiHj5pONMzbkdW62JHPoT76nX" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/metha/Desktop/KMITL/OOP_PAN/week13"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.ChatDemo">
+    <configuration name="ChatDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="lab01.ChatDemo" />
+      <module name="week11" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="lab01.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StudentView" />
+      <module name="week11" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ChatDemo" />
+        <item itemvalue="Application.StudentView" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3da1a46f-f120-490e-b552-fbc38ae17553" name="Changes" comment="" />
+      <created>1669110694832</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669110694832</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
