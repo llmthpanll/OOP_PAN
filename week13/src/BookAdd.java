@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BookAdd implements BookRefInterface{
+public class BookAdd{
     private JFrame frame;
     private JPanel pn1, pn2, pn3, pn4;
     private JLabel lb1, lb2, lb3;
@@ -45,12 +45,6 @@ public class BookAdd implements BookRefInterface{
         int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
         frame.setLocation(x, y);
         frame.setVisible(false);
-    }
-
-
-    @Override
-    public void refresh(String name, String price, String type){
-        System.out.println("BookDisplayView");
     }
 
 //    public static void main(String[] args) {

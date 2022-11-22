@@ -1,15 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class BookView implements BookRefInterface{
+public class BookView{
     private JFrame frame;
     private JPanel pn1, pn2, pn3, pn4;
     private JLabel lb1, lb2, lb3;
     private JTextField tf, tfname, tfprice;
     private JButton btnless, btnmore, btnadd, btnup, btnde;
     private JComboBox comboBox;
-
-
 
     public BookView(){
         frame = new JFrame();
@@ -151,9 +149,5 @@ public class BookView implements BookRefInterface{
 
     public void setComboBox(JComboBox comboBox) {
         this.comboBox = comboBox;
-    }
-    @Override
-    public void refresh(String name, String price, String type){
-        System.out.println("BookView");
     }
 }

@@ -44,7 +44,6 @@ public class BookController implements ActionListener {
             JOptionPane.showMessageDialog(null, "Done it.","Delete Command",JOptionPane.PLAIN_MESSAGE);
         } else if (e.getSource().equals(addbook.getBtnin())){
             System.out.println("insert");
-
             String name = addbook.getTfname().getText();
             Double price = Double.parseDouble(addbook.getTfprice().getText());
             String type = (String) addbook.getComboBox().getSelectedItem();

@@ -1,6 +1,8 @@
 import java.io.*;
+import java.util.*;
 public class BookModel {
     private Book data;
+    private ArrayList<Book> book;
     public BookModel(){
         data = new Book("", 0.0, "");
     }

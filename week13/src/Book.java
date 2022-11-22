@@ -5,9 +5,7 @@ public class Book implements Serializable{
     private double price;
     private String type;
     public Book(){
-        this.name = "";
-        this.price = 0.0;
-        this.type = "";
+        this("",0.0,"");
     }
     public Book(String name, double price, String type){
         this.name = name;
