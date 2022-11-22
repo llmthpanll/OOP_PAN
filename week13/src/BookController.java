@@ -1,69 +1,129 @@
 
-
 import java.awt.event.*;
-import javax.swing.JOptionPane;
 
 public class BookController implements ActionListener {
-    private BookView view;
-    private BookModel model;
-    private BookAdd addbook;
+
+    private boolean isAddViewOpen = false;
+    final private BookView bookView;
+    private BookAddView bookAddView;
+    final private BookModel bookModel;
+
+    public boolean isIsAddViewOpen() {
+        return isAddViewOpen;
+    }
+
+    public void setIsAddViewOpen(boolean isAddViewOpen) {
+        this.isAddViewOpen = isAddViewOpen;
+    }
 
     public BookController() {
-        view = new BookView();
-        model = new BookModel();
-        addbook = new BookAdd();
+        this.bookView = new BookView();
+        this.bookModel = new BookModel();
 
-        init();
+        this.init();
     }
-    public void init(){
-        if(model.loadData()){
-            view.setData(model.getData().getName(),model.getData().getPrice(), model.getData().getType());
+
+    public void init() {
+        Thread threadView = new Thread(bookView);
+        threadView.start();
+
+        /* Register for listener */
+        bookView.getButtonAdd().addActionListener(this);
+        bookView.getButtonPrev().addActionListener(this);
+        bookView.getButtonNext().addActionListener(this);
+        bookView.getButtonUpdate().addActionListener(this);
+        bookView.getButtonDelete().addActionListener(this);
+    }
+
+    public void updateGUI() {
+        if (bookModel.getCurrentPage() == 0) {
+            bookView.getTextFieldName().setText("");
+            bookView.getTextFieldPrice().setText("");
+            bookView.getTextFieldCurrentBook().setText("0");
+            bookView.getComboBoxType().setSelectedItem("General");
+            return;
         }
-        view.getBtnless().addActionListener(this);
-        view.getBtnmore().addActionListener(this);
-        view.getBtnadd().addActionListener(this);
-        view.getBtnup().addActionListener(this);
-        view.getBtnde().addActionListener(this);
-        addbook.getBtnin().addActionListener(this);
+
+        Book currentBook = (Book) bookModel.getBook(bookModel.getCurrentPage() - 1);
+        bookView.refresh(currentBook.getName(), "" + currentBook.getPrice(), currentBook.getType(), bookModel.getCurrentPage());
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource().equals(view.getBtnless())){
-            System.out.println("<<<");
-        } else if (e.getSource().equals(view.getBtnmore())) {
-            System.out.println(">>>");
-        } else if (e.getSource().equals(view.getBtnadd())) {
-            System.out.println("add");
-            addbook.getFrame().setVisible(true);
-        } else if (e.getSource().equals(view.getBtnup())) {
+
+        if (e.getActionCommand().equals("Add")) {
+            if (!isAddViewOpen) {
+                openAddBook();
+            }
+        }
+
+        if (e.getActionCommand().equals("Insert")) {
+
+            String toInsertName = bookAddView.getTextFieldName().getText();
+            String toInsertPrice = bookAddView.getTextFieldPrice().getText();
+            String toInsertType = bookAddView.getComboBoxType().getSelectedItem().toString();
+
+            bookModel.insertBook(toInsertName, Double.parseDouble(toInsertPrice), toInsertType);
+            bookModel.saveBooks();
+        }
+
+        if (e.getActionCommand().equals("<<<")) {
+            bookModel.decreasePage();
+            this.updateGUI();
+        }
+
+        if (e.getActionCommand().equals(">>>")) {
+            bookModel.increasePage();
+            this.updateGUI();
+        }
+
+        if (e.getActionCommand().equals("Update")) {
             System.out.println("update");
-            JOptionPane.showMessageDialog(null, "Done it.","Update Command",JOptionPane.PLAIN_MESSAGE);
-        } else if (e.getSource().equals(view.getBtnde())) {
-            System.out.println("delete");
-            JOptionPane.showMessageDialog(null, "Done it.","Delete Command",JOptionPane.PLAIN_MESSAGE);
-        } else if (e.getSource().equals(addbook.getBtnin())){
-            System.out.println("insert");
-            String name = addbook.getTfname().getText();
-            Double price = Double.parseDouble(addbook.getTfprice().getText());
-            String type = (String) addbook.getComboBox().getSelectedItem();
-            model.setData(new Book(name,price,type));
-            if(model.saveData()) {
-                System.out.println(name);
-                System.out.println(price);
-                System.out.println(type);
-                System.out.println("Complete");
+            String toUpdateName = bookView.getTextFieldName().getText();
+            double toUpdatePrice = Double.parseDouble(bookView.getTextFieldPrice().getText());
+            String toUpdateType = bookView.getComboBoxType().getSelectedItem().toString();
+
+            bookModel.updateBook(toUpdateName, toUpdatePrice, toUpdateType, bookModel.getCurrentPage());
+            this.updateGUI();
+            bookModel.saveBooks();
+        }
+
+        if (e.getActionCommand().equals("Delete")) {
+
+            if (bookModel.getCurrentPage() == bookModel.getBooksAmount()) {
+                System.out.println("LAST OF INDEX IS: " + (bookModel.getCurrentPage() - 1));
             }
-            else {
-                System.out.println("Fail!");
-            }
-            JOptionPane.showMessageDialog(null, "Done it.","",JOptionPane.PLAIN_MESSAGE);
-            addbook.getFrame().dispose();
+
+            bookModel.decreasePage();
+            this.updateGUI();
+            bookModel.removeBook(bookModel.getCurrentPage());
+            bookModel.saveBooks();
         }
     }
 
+    class WindowHandler extends WindowAdapter {
 
-    public static void main(String[] args) {
-        new BookController();
+        @Override
+        public void windowClosing(WindowEvent e) {
+            // Close addBook
+            closeAddBook();
+        }
+    }
+
+    public void openAddBook() {
+        this.bookAddView = new BookAddView();
+        Thread threadAddView = new Thread(bookAddView);
+        threadAddView.start();
+
+        bookAddView.getFrame().addWindowListener(new WindowHandler());
+        // Flag it!
+        this.setIsAddViewOpen(true);
+        /* Feature */
+        bookAddView.getButtonInsert().addActionListener(this);
+    }
+
+    public void closeAddBook() {
+        // Flag it!
+        this.setIsAddViewOpen(false);
     }
 }

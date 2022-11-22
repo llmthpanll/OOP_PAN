@@ -1,6 +1,6 @@
-
 public class Main {
-    public static void main(String[] args) {
-        new BookController();
+
+    public static void main(String arsg[]) {
+        BookController bookCon = new BookController();
     }
 }

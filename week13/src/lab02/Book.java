@@ -1,19 +1,18 @@
-import java.io.Serializable;
+package lab02;
 
+
+import java.io.*;
 public class Book implements Serializable{
-
     private String name;
     private double price;
     private String type;
-
-    public Book(String name, double price, String type) {
+    public Book(){
+        this("",0.0,"");
+    }
+    public Book(String name, double price, String type){
         this.name = name;
         this.price = price;
         this.type = type;
-    }
-
-    public Book() {
-        this("", 0, "");
     }
 
     public String getName() {
