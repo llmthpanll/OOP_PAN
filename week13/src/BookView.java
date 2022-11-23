@@ -1,157 +1,132 @@
-
-import java.awt.*;
 import javax.swing.*;
-
-public class BookView implements Runnable, Refresh {
-
-    String types[] = {"General", "Computer", "Math&Sci", "Photo"};
-
-    private MainFrame frame;
-    private Panel panelTop, panelCenter, panelBottom;
-    private TextField textFieldName, textFieldPrice, textFieldCurrentBook;
-    private ComboBox comboBoxType;
-    private Button buttonPrev, buttonNext, buttonAdd, buttonUpdate, buttonDelete;
-    private Label labelName, labelPrice, labelType;
-
-    public BookView() {
-        frame = new MainFrame();
-        panelTop = new Panel(new GridLayout(3, 2));
-        panelCenter = new Panel(new GridLayout(1, 3));
-        panelBottom = new Panel(new FlowLayout());
-        labelName = new Label("Name");
-        labelPrice = new Label("Price");
-        labelType = new Label("Type");
-        textFieldName = new TextField();
-        textFieldPrice = new TextField();
-        comboBoxType = new ComboBox(types);
-        buttonPrev = new Button("<<<");
-        buttonNext = new Button(">>>");
-        textFieldCurrentBook = new TextField();
-        buttonAdd = new Button("Add");
-        buttonUpdate = new Button("Update");
-        buttonDelete = new Button("Delete");
-
-        panelTop.add(labelName);
-        panelTop.add(textFieldName);
-        panelTop.add(labelPrice);
-        panelTop.add(textFieldPrice);
-        panelTop.add(labelType);
-        panelTop.add(comboBoxType);
-
-        panelCenter.add(buttonPrev);
-        textFieldCurrentBook.setText("0");
-        textFieldCurrentBook.setHorizontalAlignment(JTextField.CENTER);
-        panelCenter.add(textFieldCurrentBook);
-        panelCenter.add(buttonNext);
-
-        panelBottom.add(buttonAdd);
-        panelBottom.add(buttonUpdate);
-        panelBottom.add(buttonDelete);
-
-        frame.add(panelTop, BorderLayout.NORTH);
-        frame.add(panelCenter, BorderLayout.CENTER);
-        frame.add(panelBottom, BorderLayout.SOUTH);
-
-        frame.config();
+import java.awt.*;
+public class BookView {
+    private JLabel nameLabel, priceLabel, typeLabel;
+    private JTextField nameTextField, priceTextField, collectionTextField;
+    private JComboBox typeComboBox;
+    private JButton leftButton, rightButton, addButton, updateButton, deleteButton;
+    private JFrame bookViewWindow;
+    private JPanel collectionPanel, orderingPanel, bottomPanel, topPanel;
+    private String[] allCombo = {"General", "Computer", "Math&Sci", "Photo"};
+    
+    public BookView(){
+        bookViewWindow = new JFrame();
+        nameLabel = new JLabel(" Name");
+        priceLabel = new JLabel(" Price");
+        typeLabel = new JLabel(" Type");
+        nameTextField = new JTextField(null);
+        priceTextField = new JTextField(null);
+        collectionTextField = new JTextField("0");
+        typeComboBox = new JComboBox(allCombo);
+        leftButton = new JButton("<<<");
+        rightButton = new JButton(">>>");
+        addButton = new JButton("Add");
+        updateButton = new JButton("Update");
+        deleteButton = new JButton("Delete");
+        collectionPanel = new JPanel();
+        orderingPanel = new JPanel();
+        bottomPanel = new JPanel();
+        topPanel = new JPanel();
+        
+        collectionTextField.setColumns(5);
+        collectionTextField.setEditable(false);
+        
+        collectionPanel.setLayout(new FlowLayout());
+        collectionPanel.add(leftButton);    collectionPanel.add(collectionTextField);
+        collectionPanel.add(rightButton);
+        
+        orderingPanel.setLayout(new FlowLayout());
+        orderingPanel.add(addButton);   orderingPanel.add(updateButton);
+        orderingPanel.add(deleteButton);
+        
+        bottomPanel.setLayout(new GridLayout(2,1));
+        bottomPanel.add(collectionPanel);   bottomPanel.add(orderingPanel);
+        
+        topPanel.setLayout(new GridLayout(3,2));
+        topPanel.add(nameLabel);    topPanel.add(nameTextField);
+        topPanel.add(priceLabel);   topPanel.add(priceTextField);
+        topPanel.add(typeLabel);    topPanel.add(typeComboBox);
+        
+        bookViewWindow.setLayout(new BorderLayout());
+        bookViewWindow.add(topPanel, BorderLayout.NORTH);
+        bookViewWindow.add(bottomPanel, BorderLayout.SOUTH);
+        
+        bookViewWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        bookViewWindow.pack();
+        bookViewWindow.setLocationRelativeTo(null);
+        bookViewWindow.setVisible(true);
     }
 
-    @Override
-    public void refresh(String bookName, String bookPrice, String bookType, int CurrentPage) {
-        this.getTextFieldName().setText(bookName);
-        this.getTextFieldPrice().setText(bookPrice);
-        this.getTextFieldCurrentBook().setText("" + CurrentPage);
-        this.getComboBoxType().setSelectedItem(bookType);
+    public JLabel getNameLabel() {
+        return nameLabel;
     }
 
-    @Override
-    public void run() {
-        System.out.println("Book view.");
+    public JLabel getPriceLabel() {
+        return priceLabel;
     }
 
-    public Button getButtonPrev() {
-        return buttonPrev;
+    public JLabel getTypeLabel() {
+        return typeLabel;
     }
 
-    public Button getButtonNext() {
-        return buttonNext;
+    public JTextField getNameTextField() {
+        return nameTextField;
     }
 
-    public Button getButtonAdd() {
-        return buttonAdd;
+    public JTextField getPriceTextField() {
+        return priceTextField;
     }
 
-    public Button getButtonUpdate() {
-        return buttonUpdate;
+    public JComboBox getTypeComboBox() {
+        return typeComboBox;
     }
 
-    public Button getButtonDelete() {
-        return buttonDelete;
+    public JButton getLeftButton() {
+        return leftButton;
     }
 
-    public TextField getTextFieldName() {
-        return textFieldName;
+    public JButton getRightButton() {
+        return rightButton;
     }
 
-    public TextField getTextFieldPrice() {
-        return textFieldPrice;
+    public JButton getAddButton() {
+        return addButton;
     }
 
-    public TextField getTextFieldCurrentBook() {
-        return textFieldCurrentBook;
+    public JButton getUpdateButton() {
+        return updateButton;
+    }
+
+    public JButton getDeleteButton() {
+        return deleteButton;
+    }
+
+    public JFrame getBookViewWindow() {
+        return bookViewWindow;
+    }
+
+    public JPanel getOrderingPanel() {
+        return orderingPanel;
+    }
+
+    public JPanel getBottomPanel() {
+        return bottomPanel;
+    }
+
+    public JPanel getTopPanel() {
+        return topPanel;
+    }
+
+    public String[] getAllCombo() {
+        return allCombo;
+    }
+
+    public JTextField getCollectionTextField() {
+        return collectionTextField;
+    }
+
+    public JPanel getCollectionPanel() {
+        return collectionPanel;
     }
     
-    public ComboBox getComboBoxType(){
-        return comboBoxType;
-    }
-}
-
-class MainFrame extends JFrame {
-
-    public MainFrame() {
-        this.setTitle("Book view");
-    }
-
-    public void config() {
-        this.setSize(400, 225);
-        this.setVisible(true);
-        this.setResizable(false);
-        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-    }
-}
-
-class Panel extends JPanel {
-
-    public Panel(LayoutManager layout) {
-        this.setLayout(layout);
-    }
-}
-
-class TextField extends JTextField {
-
-    public TextField() {
-        this.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-    }
-}
-
-class Button extends JButton {
-
-    public Button(String text) {
-        this.setText(text);
-    }
-}
-
-class Label extends JLabel {
-
-    public Label(String text) {
-        this.setText(text);
-    }
-}
-
-class ComboBox extends JComboBox {
-
-    public ComboBox(String types[]) {
-        for (String type : types) {
-            this.addItem(type);
-        }
-    }
 }

@@ -1,129 +1,78 @@
-
 import java.awt.event.*;
-
-public class BookController implements ActionListener {
-
-    private boolean isAddViewOpen = false;
-    final private BookView bookView;
-    private BookAddView bookAddView;
-    final private BookModel bookModel;
-
-    public boolean isIsAddViewOpen() {
-        return isAddViewOpen;
+import javax.swing.*;
+public class BookController implements ActionListener, WindowListener{
+    private BookView bookView;
+    private BookAdd bookAdd;
+    private BookModel model;
+    private Book book;
+    private int index;
+    
+    public BookController(){
+        bookView = new BookView();
+        model = new BookModel();
+        index = Integer.parseInt(bookView.getCollectionTextField().getText());
+        
+        bookView.getAddButton().addActionListener(this);
+        bookView.getUpdateButton().addActionListener(this);
+        bookView.getDeleteButton().addActionListener(this);
+        bookView.getLeftButton().addActionListener(this);
+        bookView.getRightButton().addActionListener(this);
+        bookView.getBookViewWindow().addWindowListener(this);
     }
-
-    public void setIsAddViewOpen(boolean isAddViewOpen) {
-        this.isAddViewOpen = isAddViewOpen;
-    }
-
-    public BookController() {
-        this.bookView = new BookView();
-        this.bookModel = new BookModel();
-
-        this.init();
-    }
-
-    public void init() {
-        Thread threadView = new Thread(bookView);
-        threadView.start();
-
-        /* Register for listener */
-        bookView.getButtonAdd().addActionListener(this);
-        bookView.getButtonPrev().addActionListener(this);
-        bookView.getButtonNext().addActionListener(this);
-        bookView.getButtonUpdate().addActionListener(this);
-        bookView.getButtonDelete().addActionListener(this);
-    }
-
-    public void updateGUI() {
-        if (bookModel.getCurrentPage() == 0) {
-            bookView.getTextFieldName().setText("");
-            bookView.getTextFieldPrice().setText("");
-            bookView.getTextFieldCurrentBook().setText("0");
-            bookView.getComboBoxType().setSelectedItem("General");
-            return;
-        }
-
-        Book currentBook = (Book) bookModel.getBook(bookModel.getCurrentPage() - 1);
-        bookView.refresh(currentBook.getName(), "" + currentBook.getPrice(), currentBook.getType(), bookModel.getCurrentPage());
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        if (e.getActionCommand().equals("Add")) {
-            if (!isAddViewOpen) {
-                openAddBook();
+    
+    public void actionPerformed(ActionEvent ae){
+        if(ae.getActionCommand() == "Add"){
+            bookAdd = new BookAdd();
+            bookAdd.getInsertButton().addActionListener(this);
+        }else if(ae.getActionCommand() == "Insert"){
+            book = new Book(bookAdd.getNameTextField().getText(), Double.parseDouble(bookAdd.getPriceTextField().getText()), (String)(bookAdd.getTypeComboBox().getSelectedItem()));
+            model.addBook(book);
+            JOptionPane.showMessageDialog(null, "Done it.", "",JOptionPane.PLAIN_MESSAGE);
+            bookAdd.getBookAddWindow().dispose();
+        }else if(ae.getActionCommand() == "Update" && index != 0){
+            model.getBooks().set(index, new Book(bookView.getNameTextField().getText(), Double.parseDouble(bookView.getPriceTextField().getText()), (String)(bookView.getTypeComboBox().getSelectedItem())));
+            JOptionPane.showMessageDialog(null, "Done it.", "Update",JOptionPane.PLAIN_MESSAGE);
+        }else if(ae.getActionCommand() == "Delete" && index != 0){
+            model.getBooks().remove(index);
+            index--;
+            if(index == 0){
+                bookView.getNameTextField().setText("");
+                bookView.getPriceTextField().setText("");
+                bookView.getCollectionTextField().setText(index+"");
+                bookView.getTypeComboBox().setSelectedItem("General");
+            }else{
+                bookView.getNameTextField().setText(((Book)(model.getBooks().get(index))).getName());
+                bookView.getPriceTextField().setText(((Book)(model.getBooks().get(index))).getPrice()+"");
+                bookView.getTypeComboBox().setSelectedItem(((Book)(model.getBooks().get(index))).getType());
+                bookView.getCollectionTextField().setText(index+"");
             }
-        }
-
-        if (e.getActionCommand().equals("Insert")) {
-
-            String toInsertName = bookAddView.getTextFieldName().getText();
-            String toInsertPrice = bookAddView.getTextFieldPrice().getText();
-            String toInsertType = bookAddView.getComboBoxType().getSelectedItem().toString();
-
-            bookModel.insertBook(toInsertName, Double.parseDouble(toInsertPrice), toInsertType);
-            bookModel.saveBooks();
-        }
-
-        if (e.getActionCommand().equals("<<<")) {
-            bookModel.decreasePage();
-            this.updateGUI();
-        }
-
-        if (e.getActionCommand().equals(">>>")) {
-            bookModel.increasePage();
-            this.updateGUI();
-        }
-
-        if (e.getActionCommand().equals("Update")) {
-            System.out.println("update");
-            String toUpdateName = bookView.getTextFieldName().getText();
-            double toUpdatePrice = Double.parseDouble(bookView.getTextFieldPrice().getText());
-            String toUpdateType = bookView.getComboBoxType().getSelectedItem().toString();
-
-            bookModel.updateBook(toUpdateName, toUpdatePrice, toUpdateType, bookModel.getCurrentPage());
-            this.updateGUI();
-            bookModel.saveBooks();
-        }
-
-        if (e.getActionCommand().equals("Delete")) {
-
-            if (bookModel.getCurrentPage() == bookModel.getBooksAmount()) {
-                System.out.println("LAST OF INDEX IS: " + (bookModel.getCurrentPage() - 1));
+            JOptionPane.showMessageDialog(null, "Done it.", "Delete",JOptionPane.PLAIN_MESSAGE);
+        }else if(ae.getActionCommand() == "<<<" && index > 0){
+            index--;
+            if(index == 0){
+                bookView.getNameTextField().setText("");
+                bookView.getPriceTextField().setText("");
+                bookView.getCollectionTextField().setText(index+"");
+                bookView.getTypeComboBox().setSelectedItem("General");
+            }else{
+                bookView.getNameTextField().setText(((Book)(model.getBooks().get(index))).getName());
+                bookView.getPriceTextField().setText(((Book)(model.getBooks().get(index))).getPrice()+"");
+                bookView.getTypeComboBox().setSelectedItem(((Book)(model.getBooks().get(index))).getType());
+                bookView.getCollectionTextField().setText(index+"");
             }
-
-            bookModel.decreasePage();
-            this.updateGUI();
-            bookModel.removeBook(bookModel.getCurrentPage());
-            bookModel.saveBooks();
+        }else if(ae.getActionCommand() == ">>>" && index+1 < model.getBooks().size()){
+            index++;
+            bookView.getNameTextField().setText(((Book)(model.getBooks().get(index))).getName());
+            bookView.getPriceTextField().setText(((Book)(model.getBooks().get(index))).getPrice()+"");
+            bookView.getTypeComboBox().setSelectedItem(((Book)(model.getBooks().get(index))).getType());
+            bookView.getCollectionTextField().setText(index+"");
         }
     }
-
-    class WindowHandler extends WindowAdapter {
-
-        @Override
-        public void windowClosing(WindowEvent e) {
-            // Close addBook
-            closeAddBook();
-        }
-    }
-
-    public void openAddBook() {
-        this.bookAddView = new BookAddView();
-        Thread threadAddView = new Thread(bookAddView);
-        threadAddView.start();
-
-        bookAddView.getFrame().addWindowListener(new WindowHandler());
-        // Flag it!
-        this.setIsAddViewOpen(true);
-        /* Feature */
-        bookAddView.getButtonInsert().addActionListener(this);
-    }
-
-    public void closeAddBook() {
-        // Flag it!
-        this.setIsAddViewOpen(false);
-    }
+    public void windowOpened(WindowEvent ev){model.loadFile();}
+    public void windowClosed(WindowEvent ev){}
+    public void windowClosing(WindowEvent ev){model.saveFile();}
+    public void windowIconified(WindowEvent ev){}
+    public void windowDeiconified(WindowEvent ev){}
+    public void windowActivated(WindowEvent ev){}
+    public void windowDeactivated(WindowEvent ev){}
 }
