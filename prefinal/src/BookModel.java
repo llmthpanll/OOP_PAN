@@ -1,34 +1,34 @@
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 
 public class BookModel {
 
-    private Book book = new Book("", 0, "");
-    private ArrayList books = new ArrayList();
+    private Book book = new Book("", 0.0, "");
+    private ArrayList<Book> ArrayBook = new ArrayList<Book>();
 
     public BookModel() {
-        books.add(this.book);
+        ArrayBook.add(this.book);
     }
 
     public void addBook(Book book) {
-        if (!books.contains(book)) {
-            books.add(book);
+        if (!ArrayBook.contains(book)) {
+            ArrayBook.add(book);
         }
     }
 
     public ArrayList getBooks() {
-        return books;
+        return ArrayBook;
     }
 
-    public void setBooks(ArrayList books) {
-        this.books = books;
+    public void setBooks(ArrayList ArrayBook) {
+        this.ArrayBook = ArrayBook;
     }
 
     public void loadFile() {
         try ( FileInputStream fin = new FileInputStream("Book.dat");  ObjectInputStream in = new ObjectInputStream(fin);) {
             try {
-                setBooks((ArrayList) in.readObject());
+                setBooks((ArrayList) in.readObject()); // get arraylist in .dat to arraylist
             } catch (Exception e) {
                 System.out.print(e);
             }
@@ -39,7 +39,7 @@ public class BookModel {
 
     public void saveFile() {
         try ( FileOutputStream fOut = new FileOutputStream("Book.dat");  ObjectOutputStream oout = new ObjectOutputStream(fOut);) {
-            oout.writeObject((ArrayList) (getBooks()));
+            oout.writeObject((ArrayList) (getBooks())); //get arraylist
         } catch (IOException e) {
             System.out.print(e);
         }

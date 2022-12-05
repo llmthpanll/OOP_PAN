@@ -1,6 +1,9 @@
+
 import javax.swing.*;
 import java.awt.*;
+
 public class BookAdd {
+
     JFrame bookAddWindow;
     JLabel nameLabel, priceLabel, typeLabel;
     JTextField nameTextField, priceTextField;
@@ -8,8 +11,8 @@ public class BookAdd {
     JButton insertButton;
     JPanel topPanel, bottomPanel;
     private String[] allCombo = {"General", "Computer", "Math&Sci", "Photo"};
-    
-    public BookAdd(){
+
+    public BookAdd() {
         bookAddWindow = new JFrame();
         nameLabel = new JLabel(" Name");
         priceLabel = new JLabel(" Price");
@@ -20,19 +23,22 @@ public class BookAdd {
         insertButton = new JButton("Insert");
         topPanel = new JPanel();
         bottomPanel = new JPanel();
-        
-        topPanel.setLayout(new GridLayout(3,2));
-        topPanel.add(nameLabel);    topPanel.add(nameTextField);
-        topPanel.add(priceLabel);   topPanel.add(priceTextField);
-        topPanel.add(typeLabel);    topPanel.add(typeComboBox);
-        
+
+        topPanel.setLayout(new GridLayout(3, 2));
+        topPanel.add(nameLabel);
+        topPanel.add(nameTextField);
+        topPanel.add(priceLabel);
+        topPanel.add(priceTextField);
+        topPanel.add(typeLabel);
+        topPanel.add(typeComboBox);
+
         bottomPanel.setLayout(new FlowLayout());
         bottomPanel.add(insertButton);
-        
+
         bookAddWindow.setLayout(new BorderLayout());
         bookAddWindow.add(topPanel, BorderLayout.NORTH);
         bookAddWindow.add(bottomPanel, BorderLayout.SOUTH);
-        
+
         bookAddWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         bookAddWindow.pack();
         bookAddWindow.setLocationRelativeTo(null);
@@ -82,5 +88,5 @@ public class BookAdd {
     public String[] getAllCombo() {
         return allCombo;
     }
-    
+
 }
