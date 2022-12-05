@@ -42,7 +42,7 @@ public class BookController implements ActionListener, WindowListener {
             bookAdd.getTxtname().setText("");
             bookAdd.getTxtprice().setText("");
         } else if (e.getSource().equals(view.getBtnupdate()) && index != 0) { // update
-            model.getBooks().set(index, new Book(bookAdd.getTxtname().getText(), Double.parseDouble(bookAdd.getTxtprice().getText()), (String) bookAdd.getCombo().getSelectedItem()));
+            model.getBooks().set(index, new Book(view.getTxtname().getText(), Double.parseDouble(view.getTxtprice().getText()), (String) view.getCombo().getSelectedItem()));
             JOptionPane.showMessageDialog(null, "Done it.", "Update Command", JOptionPane.PLAIN_MESSAGE);
             System.out.println("Update finish");
         } else if (e.getSource().equals(view.getBtndelete()) && index != 0) { //delete
@@ -90,12 +90,12 @@ public class BookController implements ActionListener, WindowListener {
 
     @Override
     public void windowClosing(WindowEvent e) {
-
+        model.saveFile();
     }
 
     @Override
     public void windowClosed(WindowEvent e) {
-        model.saveFile();
+        
     }
 
     @Override

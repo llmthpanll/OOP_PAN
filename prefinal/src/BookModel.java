@@ -29,8 +29,9 @@ public class BookModel {
         try ( FileInputStream fin = new FileInputStream("Book.dat");  ObjectInputStream in = new ObjectInputStream(fin);) {
             try {
                 setBooks((ArrayList) in.readObject()); // get arraylist in .dat to arraylist
+                System.out.println("load");
             } catch (Exception e) {
-                System.out.print(e);
+                System.out.println(e);
             }
         } catch (IOException e) {
             System.out.print(e);
@@ -40,8 +41,9 @@ public class BookModel {
     public void saveFile() {
         try ( FileOutputStream fOut = new FileOutputStream("Book.dat");  ObjectOutputStream oout = new ObjectOutputStream(fOut);) {
             oout.writeObject((ArrayList) (getBooks())); //get arraylist
+            System.out.println("save");
         } catch (IOException e) {
-            System.out.print(e);
+            System.out.println(e);
         }
     }
 }
