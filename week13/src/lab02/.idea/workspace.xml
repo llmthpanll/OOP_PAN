@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="36bba9b4-e46b-4653-9880-03dcad53ae1e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/Book.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/Book.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/src/BookAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/src/BookAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/src/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/src/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/src/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/src/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../prefinal/src/BookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../prefinal/src/BookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Book.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../../Book.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BookModel.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectId" id="2IVpQ5g9h3LFiHK0p1BohKqV7Hz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/metha/Desktop/KMITL/OOP_PAN/week13",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36bba9b4-e46b-4653-9880-03dcad53ae1e" name="Changes" comment="" />
+      <created>1670276585818</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1670276585818</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f7b320f1-6a0b-4743-9c15-a83e8d1adb4a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../week13/src/lab02/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../week13/src/lab02/.idea/lab02.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../week13/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Book.dat" beforeDir="false" afterPath="$PROJECT_DIR$/Book.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookAdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BookView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BookView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/Book.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/Book.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../week13/src/BookModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../week13/src/BookModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +36,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/metha/Desktop/KMITL/OOP_PAN/prefinal"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/metha/Desktop/KMITL/OOP_PAN/week13/src/lab02"
   }
 }]]></component>
   <component name="RunManager">

@@ -87,7 +87,6 @@ public class BookController implements ActionListener, WindowListener {
     public void windowOpened(WindowEvent e) {
         model.loadFile();
     }
-
     @Override
     public void windowClosing(WindowEvent e) {
         model.saveFile();

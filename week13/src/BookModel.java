@@ -5,7 +5,7 @@ import java.io.*;
 public class BookModel {
 
     private Book book = new Book("", 0, "");
-    private ArrayList books = new ArrayList();
+    private ArrayList <Book> books = new ArrayList();
 
     public BookModel() {
         books.add(this.book);
