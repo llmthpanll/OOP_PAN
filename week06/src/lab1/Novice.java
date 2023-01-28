@@ -11,10 +11,12 @@ public class Novice extends Player{
     public void addEquipment(Item i){
         i.use(this);
     }
+    @Override
     public void attack(Player p){
         p.attacked(this.getATK()*2.5);
         p.setMP(5);
     }
+    @Override
     public void attacked(double n){
         this.setHP(-n);
     }
